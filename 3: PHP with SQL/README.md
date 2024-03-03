@@ -1,4 +1,5 @@
 # What I learn?
- - INSERT INTO sql
- - UPDATE sql
- - DELETE sql
+ - INSERT query
+ - UPDATE query
+ - DELETE query
+ - SELECT query

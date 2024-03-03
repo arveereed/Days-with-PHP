@@ -7,17 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $pwd = $_POST['pwd'];
   $email = $_POST['email'];
 
-  /* used to check if the elements are empty */
-  if (empty($username) || empty($pwd) || empty($email)) {
-    ?> 
-    <script>
-      window.location.href = "../index.php";
-      alert('Please insert a text to a form');
-    </script>
-    <?php
-    return;
-  }
-
   try {
     require_once "dbh.inc.php";
 

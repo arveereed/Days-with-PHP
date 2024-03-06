@@ -10,11 +10,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   try {
     require_once "dbh.inc.php";
 
-    $query = "INSERT INTO tbl_users(Username, Pwd, Email) VALUES(?, ?, ?);";
+    $query = "INSERT INTO tbl_users(Username, Pwd, Email) VALUES(:Username, :Pwd, :Email);";
 
     $stmt = $pdo->prepare($query);
 
-    $stmt->execute([$username, $pwd, $email]);
+    $stmt->bindParam(":Username", $username);
+    $stmt->bindParam(":Pwd", $hashedPwd);
+    $stmt->bindParam(":Email", $email);
+    $stmt->execute();
+    /* $stmt->execute([$username, $pwd, $email]); */
 
     $pdo = null;
     $stmt = null;
